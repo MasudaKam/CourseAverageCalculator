@@ -1,0 +1,66 @@
+/**
+ * Student Grade Calculator
+ * Calculates the course average and letter grade based on three exam scores.
+ *
+ * Author: Masuda Kamilova
+ * Date: 2024-09-15
+ * Developed using Apache NetBeans IDE 22
+ */
+
+package studentgradecalculator;
+
+import java.util.Scanner;
+
+public class StudentGradeCalculator {
+
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner(System.in);
+
+        // Variables for student info and exam scores
+        String firstName, lastName;
+        int exam1, exam2, exam3;
+        double totalScore, averageScore;
+        char letterGrade;
+
+        // Input: student name
+        System.out.print("Please enter your first name: ");
+        firstName = input.nextLine();
+
+        System.out.print("Please enter your last name: ");
+        lastName = input.nextLine();
+
+        // Input: three exam scores
+        System.out.print("Please enter Exam 1 score: ");
+        exam1 = input.nextInt();
+
+        System.out.print("Please enter Exam 2 score: ");
+        exam2 = input.nextInt();
+
+        System.out.print("Please enter Exam 3 score: ");
+        exam3 = input.nextInt();
+
+        // Calculate total and average
+        totalScore = exam1 + exam2 + exam3;
+        averageScore = totalScore / 3.0;
+
+        // Determine letter grade
+        if (averageScore >= 90) {
+            letterGrade = 'A';
+        } else if (averageScore >= 80) {
+            letterGrade = 'B';
+        } else if (averageScore >= 70) {
+            letterGrade = 'C';
+        } else {
+            letterGrade = 'F';
+        }
+
+        // Output results (formatted with printf)
+        System.out.printf("Student Name: %s %s%n", firstName, lastName);
+        System.out.printf("Exam Scores: %d, %d, %d%n", exam1, exam2, exam3);
+        System.out.printf("Course Average: %.2f%n", averageScore);
+        System.out.printf("Letter Grade: %c%n", letterGrade);
+
+        input.close();
+    }
+}
